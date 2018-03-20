@@ -44,10 +44,14 @@ While expected GET requests look like:
 Both can be accessed at http://localhost:8080/ with Curl
 
 POST:
-curl -H "Content-Type: application/json" -X POST -d '{ "device_uuid": "b21ad0676f26439482cc9b1c7e827de4", "sensor_type": "temperature", "sensor_value": 70.0, "sensor_reading_time": 1510043411 }' http://localhost:8080/
+```
+$ curl -H "Content-Type: application/json" -X POST -d '{ "device_uuid": "b21ad0676f26439482cc9b1c7e827de4", "sensor_type": "temperature", "sensor_value": 70.0, "sensor_reading_time": 1510043411 }' http://localhost:8080/
+```
 
 GET:
-curl -H "Content-Type:GET -d '{ "sensor_type": "temperature", "start_time": 1510043401, "end_time": "1510043414" }' http://localhost:8080/
+```
+$ curl -H "Content-Type:GET -d '{ "sensor_type": "temperature", "start_time": 1510043401, "end_time": "1510043414" }' http://localhost:8080/
+```
 
 ## Design Choices
 
