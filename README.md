@@ -6,19 +6,27 @@ implementation that accepts POST/GET Calls.
 
 ## Usage
 
-1. Initialize the Postgres Database in shell
-- $ docker-compose up -d db
-- $ docker-compose run --rm flaskapp /bin/bash -c "cd /opt/services/flaskapp/src && python -c  'import database; database.init_db()'"
+1. Initialize the Postgres Database in shell:
+'''
+$ docker-compose up -d db
+$ docker-compose run --rm flaskapp /bin/bash -c "cd /opt/services/flaskapp/src && python -c  'import database; database.init_db()'"
+'''
 
-2. Bring up the cluster
-- $ docker-compose up -d
+2. Bring up the cluster:
+'''
+$ docker-compose up -d
+'''
 
-3. Bring online
-- $ docker-compose up
+3. Bring online:
+'''
+$ docker-compose up
+'''
 
 4. To scale up the number of workers, and to add to the number of available
 connections for the api-change the 4 to a higher/lower number:
-- $ docker-compose up --scale flaskapp=4
+'''
+$ docker-compose up --scale flaskapp=4
+'''
 
 5. The app runs at http://localhost:8080/ and API Calls can be directed there
 
