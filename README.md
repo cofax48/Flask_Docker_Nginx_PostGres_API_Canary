@@ -33,7 +33,6 @@ Expected Post Calls look like: {
 While expected GET requests look like:
 { "sensor_type": "temperature", "start_time": 1510043401, "end_time": "1510043417", "device_uuid":"b21ad0676f26439482cc9b1c7e827de4" }
 
-
 Both can be accessed at http://localhost:8080/ with Curl
 
 POST:
@@ -41,3 +40,13 @@ curl -H "Content-Type: application/json" -X POST -d '{ "device_uuid": "b21ad0676
 
 GET:
 curl -H "Content-Type:GET -d '{ "sensor_type": "temperature", "start_time": 1510043401, "end_time": "1510043414" }' http://localhost:8080/
+
+## Design Choices
+
+1. Employing Docker was the first decision made, since the app needed to host multiple workers and connect with a database that would have to host an unlimited number of entries, a local db would be needed, and the best way to provide a local db, the API and the server to tie them all together is Docker.
+
+2. Flask was chosen for the API since the API itself is fairly simple and auth wasn't necessary. Consequently, since the only functionality needed was for a POST/GET node, flask's lightweight architecture was tailor made for such a service.
+
+3. Only dsownside for using Flask are its limitations in production, therefore Nginx was used for providing a suitable exoskeleton for project and for offering scaling capabilities. 
+
+4. Finally Postgres was chosen as the database becuase it offers the greatest speed, size, and connection availability-capable of handling any/all CRUD/ETL needs.
