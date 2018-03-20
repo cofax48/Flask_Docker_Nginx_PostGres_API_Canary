@@ -22,6 +22,7 @@ docker-compose up --scale flaskapp=4
 
 5. The app runs at http://localhost:8080/ and API Calls can be directed there
 
+## Making Calls
 
 Expected Post Calls look like: {
 "device_uuid": "b21ad0676f26439482cc9b1c7e827de4", "sensor_type": "temperature",
